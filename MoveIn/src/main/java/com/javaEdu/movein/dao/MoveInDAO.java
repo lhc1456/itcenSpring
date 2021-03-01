@@ -71,7 +71,7 @@ public class MoveInDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String query = "insert into MoveIn values (mi_seq.nextval, '처리�?', ?, ?, ?, ?, ?)";
+		String query = "insert into MoveIn values (mi_seq.nextval, '처리중', ?, ?, ?, ?, ?)";
 		
 		try {
 			con = getConnection();
