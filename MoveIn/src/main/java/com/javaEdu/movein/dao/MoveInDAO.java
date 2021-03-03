@@ -45,8 +45,9 @@ public class MoveInDAO {
 				String afterAddr = rs.getString("afterAddr");
 				String afterdAddr = rs.getString("afterdAddr");
 				String mId = rs.getString("mId");
+				String sigungu = rs.getString("sigungu");
 				
-				MoveInDTO dto = new MoveInDTO(ren, state, beforeAddr, beforedAddr, afterAddr, afterdAddr, mId);
+				MoveInDTO dto = new MoveInDTO(ren, state, beforeAddr, beforedAddr, afterAddr, afterdAddr, mId, sigungu);
 				dtos.add(dto);
 			}
 			
@@ -71,7 +72,7 @@ public class MoveInDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String query = "insert into MoveIn values (mi_seq.nextval, '처리중', ?, ?, ?, ?, ?)";
+		String query = "insert into MoveIn values (mi_seq.nextval, '처리중', ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			con = getConnection();
@@ -82,6 +83,7 @@ public class MoveInDAO {
 			pstmt.setString(3, dto.getAfterAddr());
 			pstmt.setString(4, dto.getAfterdAddr());
 			pstmt.setString(5, dto.getmId());
+			pstmt.setString(6, dto.getSigungu());
 			pstmt.executeUpdate();
 			
 			ri = 1;
@@ -124,6 +126,7 @@ public class MoveInDAO {
 				dto.setAfterAddr(rs.getString("afterAddr"));
 				dto.setAfterdAddr(rs.getString("afterdAddr"));
 				dto.setmId(rs.getString("mId"));
+				dto.setSigungu(rs.getString("sigungu"));
 				
 				dtos.add(dto);
 			}
@@ -167,6 +170,7 @@ public class MoveInDAO {
 				dto.setAfterAddr(rs.getString("afterAddr"));
 				dto.setAfterdAddr(rs.getString("afterdAddr"));
 				dto.setmId(rs.getString("mId"));
+				dto.setSigungu(rs.getString("sigungu"));
 			}
 			
 		} catch (Exception e) {

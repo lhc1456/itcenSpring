@@ -9,12 +9,13 @@ public class MoveInDTO {
 	String afterAddr;
 	String afterdAddr;
 	String mId;
+	String sigungu;
 	
 	public MoveInDTO() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public MoveInDTO(int ren, String state, String beforeAddr, String beforedAddr, String afterAddr, String afterdAddr, String mId) {
+	public MoveInDTO(int ren, String state, String beforeAddr, String beforedAddr, String afterAddr, String afterdAddr, String mId, String sigungu) {
 		// TODO Auto-generated constructor stub
 		this.ren = ren;
 		this.state = state;
@@ -23,6 +24,7 @@ public class MoveInDTO {
 		this.afterAddr = afterAddr;
 		this.afterdAddr = afterdAddr;
 		this.mId = mId;
+		this.sigungu = sigungu;
 	}
 
 	public int getRen() {
@@ -79,6 +81,14 @@ public class MoveInDTO {
 
 	public void setmId(String mId) {
 		this.mId = mId;
+	}
+
+	public String getSigungu() {
+		return sigungu;
+	}
+
+	public void setSigungu(String sigungu) {
+		this.sigungu = sigungu;
 	}
 	
 }

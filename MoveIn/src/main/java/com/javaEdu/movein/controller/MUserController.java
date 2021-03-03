@@ -28,7 +28,7 @@ import com.javaEdu.movein.service.MWithdrawalService;
 
 
 @Controller
-public class MController {
+public class MUserController {
 	
 	MService service = null;
 	
@@ -93,12 +93,6 @@ public class MController {
 		service.execute(model);
 		
 		return "page";
-	}
-	
-	@RequestMapping("/notice")
-	public String notice(Model model) {
-		
-		return "Notice";
 	}
 	
 	@RequestMapping("/memberList")
@@ -249,75 +243,9 @@ public class MController {
 		return;	
 	}
 	
-	@RequestMapping(value = "/step1", method = RequestMethod.POST)
-	public String step1(HttpServletRequest request, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		model.addAttribute("request", request);
-		service = new MDetailService();
-		service.execute(model);
-		
-		return "step1";
-	}
-	
-	@RequestMapping(value = "/step2", method = RequestMethod.POST)
-	public String step2(HttpServletRequest request, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		model.addAttribute("request", request);
-		service = new MDetailService();
-		service.execute(model);
-		
-		return "step2";
-	}
-	
-	@RequestMapping(value = "/step3", method = RequestMethod.POST)
-	public String step3(HttpServletRequest request, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		model.addAttribute("request", request);
-		service = new MDetailService();
-		service.execute(model);
-		
-		return "step3";
-	}
-	
-	@RequestMapping(value = "/submit", method = RequestMethod.POST)
-	public void submit(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		model.addAttribute("request", request);
-		model.addAttribute("response", response);
-		service = new MSubmitService();
-		service.execute(model);
-		
-		return;
-	}
-	
-	@RequestMapping(value = "/checkAddr", method = RequestMethod.POST)
-	public void checkAddr(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		model.addAttribute("request", request);
-		model.addAttribute("response", response);
-		service = new MCheckAddrService();
-		service.execute(model);
-		
-		return;
-	}
-	
 	@RequestMapping("/popup/RateReduction")
 	public String popupRR(Model model) {
 		return "popup/RateReduction";
-	}
-	
-	@RequestMapping("/popup/BuildingNum")
-	public String popupBN(Model model) {
-		return "popup/BuildingNum";
-	}
-	
-	@RequestMapping("/popup/MultiFamily")
-	public String popupMF(Model model) {
-		return "popup/MultiFamily";
 	}
 	
 	@RequestMapping("/findId_view")

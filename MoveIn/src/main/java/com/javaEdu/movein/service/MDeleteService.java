@@ -31,7 +31,6 @@ public class MDeleteService implements MService {
 			int checkNum = 0;
 			for (int i = 0; i < selectList.length; i++) {
 				checkNum = dao.deleteAdmin(selectList[i]);
-				
 				 if(checkNum == 0) {
 					PrintWriter writer = response.getWriter();
 					writer.println("<script>alert('"+ selectList[i] +"관리자 삭제에 실패했습니다.'); history.go(-1);</script>");
@@ -41,7 +40,7 @@ public class MDeleteService implements MService {
 			}
 			if(checkNum == 1) {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('관리자 삭제에 성공했습니다.');document.location.href='/adminList'</script>");
+				writer.println("<script>alert('관리자 삭제에 성공했습니다.'); document.location.href='adminList'</script>");
 				writer.close();
 				return;
 			}
@@ -50,7 +49,6 @@ public class MDeleteService implements MService {
 			int checkNum = 0;
 			for (int i = 0; i < selectList.length; i++) {
 				checkNum = dao.deleteMember(selectList[i]);
-				
 				if(checkNum == 0) {
 					PrintWriter writer = response.getWriter();
 					writer.println("<script>alert('"+ selectList[i] +"회원 삭제에 실패했습니다.'); history.go(-1);</script>");
@@ -60,7 +58,7 @@ public class MDeleteService implements MService {
 			}
 			if(checkNum == 1) {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert(회원 삭제에 성공했습니다.');document.location.href='/memberList';</script>");
+				writer.println("<script>alert('회원 삭제에 성공했습니다.');document.location.href='memberList';</script>");
 				writer.close();
 				return;
 			}
