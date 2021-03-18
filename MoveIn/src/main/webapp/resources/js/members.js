@@ -21,6 +21,12 @@ function infoConfirm() {
 		return;
 	}
 	
+	if(document.reg_frm.mPw.value.length < 4) {
+		alert("패스워드는 4자 이상입니다..");
+		reg_frm.mPw.focus();
+		return;
+	}
+	
 	if(document.reg_frm.mPw.value != document.reg_frm.chkPw.value) {
 		alert("패스워드가 일치하지 않습니다..");
 		reg_frm.mPw.focus();
@@ -126,6 +132,12 @@ function adminInfoConfirm() {
 		return;
 	}
 	
+	if(document.regF.aPw.value.length < 4) {
+		alert("패스워드는 4자 이상입니다..");
+		regF.aPw.focus();
+		return;
+	}
+	
 	if(document.regF.aName.value.length == 0) {
 		alert("이름은 필수사항입니다..");
 		regF.aName.focus();
@@ -153,12 +165,25 @@ function loginConfirm() {
 		loginF.pw.focus();
 		return;
 	}
+	
+	if(document.loginF.pw.value.length < 4) {
+		alert("패스워드는 4자 이상입니다..");
+		loginF.pw.focus();
+		return;
+	}
+	
 	document.loginF.submit()
 }
 
 function updateInfoConfirm() {
 	if(document.modF.pw.value.length == 0) {
 		alert("패스워드는 필수사항입니다..");
+		modF.pw.focus();
+		return;
+	}
+	
+	if(document.modF.pw.value.length < 4) {
+		alert("패스워드는 4자 이상입니다..");
 		modF.pw.focus();
 		return;
 	}
@@ -247,6 +272,96 @@ function updateInfoConfirm() {
 	}
 	
 	document.modF.submit();
+}
+
+function confirmId() {
+	if(document.findF.name.value.length == 0) {
+		alert("이름은 필수사항입니다..");
+		modF.name.focus();
+		return;
+	}
+	
+	if(document.findF.rrn01.value.length == 0) {
+		alert("주민등록번호는 필수사항입니다..");
+		modF.rrn01.focus();
+		return;
+	}
+	
+	if(document.findF.rrn01.value.length < 6 || document.findF.rrn01.value.length > 6 ) {
+		alert("주민등록번호 앞자리는 6자리입니다..");
+		modF.rrn01.focus();
+		return;
+	}
+	
+	if(isNaN(document.findF.rrn01.value) || isNaN(document.findF.rrn02.value) ) {
+		alert("주민등록번호는 숫자만 입력 가능합니다.");
+		modF.rrn01.focus();
+		return;
+	}
+	
+	if(document.findF.rrn02.value.length == 0) {
+		alert("주민등록번호는 필수사항입니다..");
+		modF.rrn02.focus();
+		return;
+	}
+	
+	if(document.findF.rrn02.value.length < 7 || document.findF.rrn02.value.length > 7) {
+		alert("주민등록번호 뒷자리는 7자리입니다..");
+		modF.rrn02.focus();
+		return;
+	}
+	document.findF.submit();
+}
+
+function confirmPw() {
+	if(document.findF.id.value.length == 0) {
+		alert("아이디는 필수사항입니다..");
+		loginF.id.focus();
+		return;
+	}
+	
+	if(document.findF.id.value.length < 4) {
+		alert("아이디는 4자 이상 입력하세요.");
+		loginF.id.focus();
+		return;
+	}
+	
+	if(document.findF.name.value.length == 0) {
+		alert("이름은 필수사항입니다..");
+		modF.name.focus();
+		return;
+	}
+	
+	if(document.findF.rrn01.value.length == 0) {
+		alert("주민등록번호는 필수사항입니다..");
+		modF.rrn01.focus();
+		return;
+	}
+	
+	if(document.findF.rrn01.value.length < 6 || document.findF.rrn01.value.length > 6 ) {
+		alert("주민등록번호 앞자리는 6자리입니다..");
+		modF.rrn01.focus();
+		return;
+	}
+	
+	if(isNaN(document.findF.rrn01.value) || isNaN(document.findF.rrn02.value) ) {
+		alert("주민등록번호는 숫자만 입력 가능합니다.");
+		modF.rrn01.focus();
+		return;
+	}
+	
+	if(document.findF.rrn02.value.length == 0) {
+		alert("주민등록번호는 필수사항입니다..");
+		modF.rrn02.focus();
+		return;
+	}
+	
+	if(document.findF.rrn02.value.length < 7 || document.findF.rrn02.value.length > 7) {
+		alert("주민등록번호 뒷자리는 7자리입니다..");
+		modF.rrn02.focus();
+		return;
+	}
+	document.findF.submit();
 }
 
 function modifyPw() {
@@ -527,8 +642,9 @@ function checkAddr() {
 		return;
 	}
 	$.ajax({
-		url : 'checkAddr.do',
+		url : 'checkAddr',
 		method : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		data : {
 			sido : $("#sido option:selected").val(),
 			gugun : $("#gugun option:selected").val()

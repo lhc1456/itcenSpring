@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.javaEdu.movein.service.MCheckAddrService;
 import com.javaEdu.movein.service.MDeleteService;
 import com.javaEdu.movein.service.MDetailService;
+import com.javaEdu.movein.service.MFindInfoService;
 import com.javaEdu.movein.service.MListMoveInService;
 import com.javaEdu.movein.service.MListService;
 import com.javaEdu.movein.service.MLoginService;
@@ -248,26 +249,46 @@ public class MUserController {
 		return "popup/RateReduction";
 	}
 	
+	@RequestMapping("/popup/showId")
+	public String showId(Model model) {
+		return "popup/showId";
+	}
+	
+	@RequestMapping("/popup/showPw")
+	public String showPw(Model model) {
+		return "popup/showPw";
+	}
+	
 	@RequestMapping("/findId_view")
 	public String findId_view(HttpServletResponse response, Model model) throws IOException {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		model.addAttribute("response", response);
-		service = new MNotImplService();
-		service.execute(model);
-		
-		return "redirect:login_view";
+		return "findId";
 	}
 	
 	@RequestMapping("/findPw_view")
 	public String findPw_view(HttpServletResponse response, Model model) throws IOException {
+		return "findPw";
+	}
+	
+	@RequestMapping("/findId")
+	public void findId(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		request.setAttribute("thing", "id");
+		model.addAttribute("request", request);
 		model.addAttribute("response", response);
-		service = new MNotImplService();
+		service = new MFindInfoService();
 		service.execute(model);
-		
-		return "redirect:login_view";
+	}
+	
+	@RequestMapping("/findPw")
+	public void findPw(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		request.setAttribute("thing", "pw");
+		model.addAttribute("request", request);
+		model.addAttribute("response", response);
+		service = new MFindInfoService();
+		service.execute(model);
 	}
 	
 	@ExceptionHandler(Exception.class)

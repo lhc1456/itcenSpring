@@ -51,7 +51,7 @@ div>div>a.header:active {
 }
 
 body {
-	background: lightblue;
+	background: #c5cae9;
 }
 
 div>fieldset>div>form>p.title {
@@ -69,7 +69,7 @@ div.bottom {
 td.right {
 	text-align: right;
 }
-div>div#main, table#modify>tbody>tr>td.btn>#addrBtn {
+div>div#main {
 	width : 80%;
 	
 }
@@ -120,6 +120,9 @@ table#signupF>tbody>tr>td>.inAreaHalf, table#modify>tbody>tr>td>.inAreaHalf {
 }
 table#signupF>tbody>tr>td>.inAreaOther, table#modify>tbody>tr>td>.inAreaOther {
 	width: 30%;
+}
+table#signupF>tbody>tr>td>.fixedArea1, table#modify>tbody>tr>td>.fixedArea1 {
+	width: 150px;
 }
 
 aside.sidebar {

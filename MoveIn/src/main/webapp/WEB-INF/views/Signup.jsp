@@ -52,7 +52,7 @@
 					<tr>
 						<td><label class="req lb" for="addr">주소</label></td>
 						<td colspan="2"><input type="text" name="addr" id="addr" class="inArea" required="required" onclick="execDaumPostcode()"><input type="hidden" name="sigunguCode" id="sigunguCode"></td>
-						<td><input type="button" class="inAreaHalf" value="주소검색" onclick="execDaumPostcode()"></td>
+						<td><input type="button" class="fixedArea1" value="주소검색" onclick="execDaumPostcode()"></td>
 					</tr>
 					<tr>
 						<td><label for="dAddr" class="lb">상세주소</label></td>
