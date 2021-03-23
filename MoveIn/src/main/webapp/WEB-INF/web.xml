@@ -49,7 +49,7 @@
      </filter-mapping>
      
      <error-page>
-     	<location>/errors</location>
+     	<location>/errors/viewError</location>
      </error-page>
 
 </web-app>

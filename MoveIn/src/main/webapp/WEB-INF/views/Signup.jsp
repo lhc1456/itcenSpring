@@ -46,7 +46,7 @@
 					</tr>
 					<tr>
 						<td><label class="req lb" for="rrn01">주민등록번호</label></td>
-						<td colspan="2"><input type="text" name="rrn01" id="rrn01" class="inAreaHalf" required="required">-<input type="password" name="rrn02" class="inAreaHalf" required="required"></td>
+						<td colspan="2"><input type="text" name="rrn01" id="rrn01" class="inAreaHalf" maxlength="6" required="required">-<input type="password" name="rrn02" class="inAreaHalf" maxlength="7" required="required"></td>
 						<td></td>
 					</tr>
 					<tr>

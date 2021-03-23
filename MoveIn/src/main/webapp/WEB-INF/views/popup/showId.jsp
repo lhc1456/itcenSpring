@@ -8,7 +8,7 @@
 <body>
 <div style="text-align: center">
 	<p>${findName} 님의 아이디는 '${ findId }' 입니다.</p>
-	<input type="button" value="확인" onclick="javascript:window.close();" style="width:400px" />
+	<input type="button" value="확인" onclick="javascript:window.close();" style="width:300px; margin:0 auto;" />
 </div>
 </body>
 </html>

@@ -29,11 +29,11 @@
 					</tr>
 					<tr>
 						<td><label for="rrn01" class="lb">주민번호</label></td>
-						<td colspan="2"><input type="text" name="rrn01" id="rrn01" >-<input type="password" name="rrn02" ></td>
+						<td colspan="2"><input type="text" name="rrn01" id="rrn01" maxlength="6" >-<input type="password" name="rrn02" id="rrn02" maxlength="7"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="button" id="findbtn" value="비밀번호 찾기" onclick="confirmPw()"></td>
+						<td><input type="button" id="findbtn" value="비밀번호 찾기" onclick="searchPw()"></td>
 						<td><input type="button" id="cancle" value="취소" onclick="history.go(-1)"></td>
 					</tr>
 				</tbody>

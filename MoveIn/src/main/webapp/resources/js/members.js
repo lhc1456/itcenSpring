@@ -3,7 +3,7 @@
  */
 
 function infoConfirm() {
-	if(document.reg_frm.mId.value.length == 0) {
+	if(document.reg_frm.mId.value.length == 0 || document.reg_frm.mId.value.trim().length == 0) {
 		alert("아이디는 필수사항입니다..");
 		reg_frm.mId.focus();
 		return;
@@ -15,7 +15,7 @@ function infoConfirm() {
 		return;
 	}
 	
-	if(document.reg_frm.mPw.value.length == 0) {
+	if(document.reg_frm.mPw.value.length == 0 || document.reg_frm.mPw.value.trim().length == 0) {
 		alert("패스워드는 필수사항입니다..");
 		reg_frm.mPw.focus();
 		return;
@@ -274,7 +274,7 @@ function updateInfoConfirm() {
 	document.modF.submit();
 }
 
-function confirmId() {
+function searchId() {
 	if(document.findF.name.value.length == 0) {
 		alert("이름은 필수사항입니다..");
 		modF.name.focus();
@@ -287,7 +287,7 @@ function confirmId() {
 		return;
 	}
 	
-	if(document.findF.rrn01.value.length < 6 || document.findF.rrn01.value.length > 6 ) {
+	if(document.findF.rrn01.value.length < 6 || document.findF.rrn01.value.length > 6 || document.findF.rrn01.value.trim().length < 6 ) {
 		alert("주민등록번호 앞자리는 6자리입니다..");
 		modF.rrn01.focus();
 		return;
@@ -305,15 +305,42 @@ function confirmId() {
 		return;
 	}
 	
-	if(document.findF.rrn02.value.length < 7 || document.findF.rrn02.value.length > 7) {
+	if(document.findF.rrn02.value.length < 7 || document.findF.rrn02.value.length > 7 || document.findF.rrn02.value.trim().length < 7) {
 		alert("주민등록번호 뒷자리는 7자리입니다..");
 		modF.rrn02.focus();
 		return;
 	}
-	document.findF.submit();
+	
+	$.ajax({
+		url : 'findId',
+		method : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		data : {
+			name : $("#name").val(),
+			rrn01 : $("#rrn01").val(),
+			rrn02 : $("#rrn02").val()
+		},
+		success : function(data) {
+			alert(data)
+			if(data == '1') {
+				window.open('popup/showId', 'showID', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  
+				document.location.href='login_view';
+				return;
+			} else if(data == '0') {
+				alert('일치하는 정보가 없습니다.');
+				document.location.href='login_view';
+				return;
+			} else {
+				alert("잘못된 접근입니다.");
+				document.location.href='login_view';
+				return;
+			}
+			
+		}
+	})
 }
 
-function confirmPw() {
+function searchPw() {
 	if(document.findF.id.value.length == 0) {
 		alert("아이디는 필수사항입니다..");
 		loginF.id.focus();
@@ -361,7 +388,34 @@ function confirmPw() {
 		modF.rrn02.focus();
 		return;
 	}
-	document.findF.submit();
+
+	$.ajax({
+		url : 'findPw',
+		method : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		data : {
+			id : $("#id").val(),
+			name : $("#name").val(),
+			rrn01 : $("#rrn01").val(),
+			rrn02 : $("#rrn02").val()
+		},
+		success : function(data) {
+			if(data == '1') {
+				window.open('popup/showPw', 'showPW', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  
+				document.location.href='login_view';
+				return;
+			} else if(data == '0') {
+				alert('일치하는 정보가 없습니다.');
+				document.location.href='login_view';
+				return;
+			} else {
+				alert("잘못된 접근입니다.");
+				document.location.href='login_view';
+				return;
+			}
+			
+		}
+	})
 }
 
 function modifyPw() {
@@ -661,9 +715,6 @@ function checkAddr() {
 			
 		}
 	})
-//	$('#addr_lb').text($('#addr').val());
-//	$('#dAddr_lb').text($('#dAddr').val());
-//	document.getElementById('movMem').style.display = 'block';
 }
 
 function setMF() {

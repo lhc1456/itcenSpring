@@ -26,21 +26,24 @@ public class MFindInfoService implements MService {
 			String name = request.getParameter("name");
 			String rrn01 = request.getParameter("rrn01");
 			String rrn02 = request.getParameter("rrn02");
-			
 			MemberDAO dao = MemberDAO.getInstance();
 			String id = dao.findId(name, rrn01, rrn02);
 			
 			request.getSession().setAttribute("findId", id);
 			request.getSession().setAttribute("findName", name);
 			
+			System.out.println(id);
+			
 			if(id == null) {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('일치하는 정보가 없습니다.');document.location.href='login_view';</script>");
+//				writer.print("<script>alert('일치하는 정보가 없습니다.');document.location.href='login_view';</script>");
+				writer.print("0");
 				writer.close();
 				return;
 			} else {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script> window.open('popup/showId', 'showID', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  document.location.href='login_view';</script>");
+//				writer.print("<script> window.open('popup/showId', 'showID', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  document.location.href='login_view';</script>");
+				writer.print("1");
 				writer.close();
 				return;
 			}
@@ -59,18 +62,20 @@ public class MFindInfoService implements MService {
 			
 			if(id == null) {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('일치하는 정보가 없습니다.');document.location.href='login_view';</script>");
+//				writer.println("<script>alert('일치하는 정보가 없습니다.');document.location.href='login_view';</script>");
+				writer.println("0");
 				writer.close();
 				return;
 			} else {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>window.open('popup/showPw', 'showPW', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  document.location.href='login_view';</script>");
+//				writer.print("<script>window.open('popup/showPw', 'showPW', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  document.location.href='login_view';</script>");
+				writer.print("1");
 				writer.close();
 				return;
 			}
 		} else {
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('잘못된 접근입니다.');document.location.href='login_view';</script>");
+			writer.print("-1");
 			writer.close();
 			return;
 		}
