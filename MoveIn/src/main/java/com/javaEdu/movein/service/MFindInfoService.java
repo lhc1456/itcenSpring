@@ -60,7 +60,7 @@ public class MFindInfoService implements MService {
 			request.getSession().setAttribute("findPw", pw);
 			request.getSession().setAttribute("findName", name);
 			
-			if(id == null) {
+			if(pw == null) {
 				PrintWriter writer = response.getWriter();
 //				writer.println("<script>alert('일치하는 정보가 없습니다.');document.location.href='login_view';</script>");
 				writer.println("0");
