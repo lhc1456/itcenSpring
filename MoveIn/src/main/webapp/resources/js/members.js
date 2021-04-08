@@ -321,7 +321,6 @@ function searchId() {
 			rrn02 : $("#rrn02").val()
 		},
 		success : function(data) {
-			alert(data)
 			if(data == '1') {
 				window.open('popup/showId', 'showID', 'width=400, height=200, location=no, resizeable=no, scrollbars=no');  
 				document.location.href='login_view';
