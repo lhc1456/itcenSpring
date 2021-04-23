@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/javaEdu/movein/service=UTF-8
+encoding//src/main/webapp/WEB-INF/views/header.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/popup/BuildingNum.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/sidebar.jsp=UTF-8

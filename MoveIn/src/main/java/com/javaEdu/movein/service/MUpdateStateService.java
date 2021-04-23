@@ -38,11 +38,12 @@ public class MUpdateStateService implements MService {
 				MemberDTO mDTO = mDAO.getMember(dto.getmId());
 				mDTO.setAddr(dto.getAfterAddr());
 				mDTO.setdAddr(dto.getAfterdAddr());
+				mDTO.setSigunguCode(dto.getSigungu());
 				int rn = mDAO.updateMember(mDTO);
 				
 				if(rn == 1) {
 					PrintWriter writer = response.getWriter();
-					writer.println("<script>alert('승인이 완료되었습니다.');document.location.href='/main';</script>");
+					writer.println("<script>alert('승인이 완료되었습니다.');document.location.href='main';</script>");
 					writer.close();
 					return;
 				} else {

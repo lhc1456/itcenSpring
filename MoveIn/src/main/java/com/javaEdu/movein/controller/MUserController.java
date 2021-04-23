@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.javaEdu.movein.service.MCheckAddrService;
 import com.javaEdu.movein.service.MDeleteService;
 import com.javaEdu.movein.service.MDetailService;
+import com.javaEdu.movein.service.MFindInfoService;
 import com.javaEdu.movein.service.MListMoveInService;
 import com.javaEdu.movein.service.MListService;
 import com.javaEdu.movein.service.MLoginService;
@@ -28,7 +29,7 @@ import com.javaEdu.movein.service.MWithdrawalService;
 
 
 @Controller
-public class MController {
+public class MUserController {
 	
 	MService service = null;
 	
@@ -93,12 +94,6 @@ public class MController {
 		service.execute(model);
 		
 		return "page";
-	}
-	
-	@RequestMapping("/notice")
-	public String notice(Model model) {
-		
-		return "Notice";
 	}
 	
 	@RequestMapping("/memberList")
@@ -249,97 +244,51 @@ public class MController {
 		return;	
 	}
 	
-	@RequestMapping(value = "/step1", method = RequestMethod.POST)
-	public String step1(HttpServletRequest request, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		model.addAttribute("request", request);
-		service = new MDetailService();
-		service.execute(model);
-		
-		return "step1";
-	}
-	
-	@RequestMapping(value = "/step2", method = RequestMethod.POST)
-	public String step2(HttpServletRequest request, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		model.addAttribute("request", request);
-		service = new MDetailService();
-		service.execute(model);
-		
-		return "step2";
-	}
-	
-	@RequestMapping(value = "/step3", method = RequestMethod.POST)
-	public String step3(HttpServletRequest request, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		model.addAttribute("request", request);
-		service = new MDetailService();
-		service.execute(model);
-		
-		return "step3";
-	}
-	
-	@RequestMapping(value = "/submit", method = RequestMethod.POST)
-	public void submit(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		model.addAttribute("request", request);
-		model.addAttribute("response", response);
-		service = new MSubmitService();
-		service.execute(model);
-		
-		return;
-	}
-	
-	@RequestMapping(value = "/checkAddr", method = RequestMethod.POST)
-	public void checkAddr(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		model.addAttribute("request", request);
-		model.addAttribute("response", response);
-		service = new MCheckAddrService();
-		service.execute(model);
-		
-		return;
-	}
-	
 	@RequestMapping("/popup/RateReduction")
 	public String popupRR(Model model) {
 		return "popup/RateReduction";
 	}
 	
-	@RequestMapping("/popup/BuildingNum")
-	public String popupBN(Model model) {
-		return "popup/BuildingNum";
+	@RequestMapping("/popup/showId")
+	public String showId(Model model) {
+		return "popup/showId";
 	}
 	
-	@RequestMapping("/popup/MultiFamily")
-	public String popupMF(Model model) {
-		return "popup/MultiFamily";
+	@RequestMapping("/popup/showPw")
+	public String showPw(Model model) {
+		return "popup/showPw";
 	}
 	
 	@RequestMapping("/findId_view")
 	public String findId_view(HttpServletResponse response, Model model) throws IOException {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		model.addAttribute("response", response);
-		service = new MNotImplService();
-		service.execute(model);
-		
-		return "redirect:login_view";
+		return "findId";
 	}
 	
 	@RequestMapping("/findPw_view")
 	public String findPw_view(HttpServletResponse response, Model model) throws IOException {
+		return "findPw";
+	}
+	
+	@RequestMapping("/findId")
+	public void findId(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		request.setAttribute("thing", "id");
+		model.addAttribute("request", request);
 		model.addAttribute("response", response);
-		service = new MNotImplService();
+		service = new MFindInfoService();
 		service.execute(model);
-		
-		return "redirect:login_view";
+	}
+	
+	@RequestMapping("/findPw")
+	public void findPw(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		request.setAttribute("thing", "pw");
+		model.addAttribute("request", request);
+		model.addAttribute("response", response);
+		service = new MFindInfoService();
+		service.execute(model);
 	}
 	
 	@ExceptionHandler(Exception.class)

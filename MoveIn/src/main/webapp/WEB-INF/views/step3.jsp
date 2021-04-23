@@ -30,7 +30,7 @@
 							<tbody class="left">
 								<tr>
 									<td id="head"><label class="req">기본주소</label></td>
-									<td><span><input type="text" name="afterAddr" id="addr"><input type="button" class="inAreaHalf" value="주소검색" onclick="execDaumPostcode()"></span><br/><input type="button" value="건물번호란?" onclick="popupBN()"></td>
+									<td><span><input type="text" name="afterAddr" id="addr"><input type="button" class="inAreaHalf" value="주소검색" onclick="execDaumPostcode()"><input type="hidden" name="sigunguCode" id="sigunguCode"></span><br/><input type="button" value="건물번호란?" onclick="popupBN()"></td>
 								</tr>
 								<tr>
 									<td id="head"><label>상세주소</label></td>

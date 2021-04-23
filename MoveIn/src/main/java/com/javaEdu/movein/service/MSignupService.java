@@ -39,12 +39,12 @@ public class MSignupService implements MService {
 			
 			if(ri == 1) {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('관리자 추가에 성공하였습니다.');document.location.href=\"main.do\";</script>");
+				writer.println("<script>alert('관리자 추가에 성공하였습니다.');document.location.href='main';</script>");
 				writer.close();
 				return;
 			} else {
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('관리자 추가에 실패하였습니다.');document.location.href=\"main.do\";</script>");
+				writer.println("<script>alert('관리자 추가에 실패하였습니다.');document.location.href='main';</script>");
 				writer.close();
 				return;
 			}
@@ -82,12 +82,12 @@ public class MSignupService implements MService {
 				int ri = dao.insertMember(dto);
 				if(ri == 1) {
 					PrintWriter writer = response.getWriter();
-					writer.println("<script>alert('회원가입을 축하 합니다.');document.location.href=\"main.do\";</script>");
+					writer.println("<script>alert('회원가입을 축하 합니다.');document.location.href='main';</script>");
 					writer.close();
 					return;
 				} else {
 					PrintWriter writer = response.getWriter();
-					writer.println("<script>alert('회원가입에 실패하였습니다.');document.location.href=\"main.do\";</script>");
+					writer.println("<script>alert('회원가입에 실패하였습니다.');document.location.href='main';</script>");
 					writer.close();
 					return;
 				}

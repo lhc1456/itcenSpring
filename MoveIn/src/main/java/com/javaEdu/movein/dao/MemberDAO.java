@@ -181,7 +181,7 @@ public class MemberDAO {
 				if(dbPw.equals(mPw)) {
 					ri = 1;	// �α��� OK
 				} else {
-					ri = 0;	// ���? X
+					ri = 0;	// ���? X
 				}
 			} else {
 				ri = -1;	//ȸ�� X
@@ -321,6 +321,75 @@ public class MemberDAO {
 		}
 		
 		return ri;
+	}
+	
+	public String findId(String name, String rrn01, String rrn02) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String query = "select mId from member_MI where mName=? and rrn01=? and rrn02=?";
+		String id = null;
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, name);
+			pstmt.setString(2, rrn01);
+			pstmt.setString(3, rrn02);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				id = rs.getString("mId");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return id;
+	}
+	
+	public String findPw(String id, String name, String rrn01, String rrn02) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String query = "select mPw from member_MI where mId=? and mName=? and rrn01=? and rrn02=?";
+		String pw = null;
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, rrn01);
+			pstmt.setString(4, rrn02);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pw = rs.getString("mPw");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return pw;
 	}
 	
 	private Connection getConnection() {

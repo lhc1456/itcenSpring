@@ -46,7 +46,7 @@
 						<tr>
 							<td><label class="req lb" for="addr" >주소</label></td>
 							<td><input type="text" name="addr" id="addr" class="inArea" value="${ dMember.addr }" /><input type="hidden" name="sigunguCode" id="sigunguCode" value="${dMember.sigunguCode }"></td>
-							<td class="btn"><input type="button" id="addrBtn" value="주소검색" onclick="execDaumPostcode()"></td>
+							<td class="btn"><input type="button" class="fixedArea1" value="주소검색" onclick="execDaumPostcode()"></td>
 						</tr>
 						<tr>
 							<td><label class=" lb" for="dAddr" >상세 주소</label></td>

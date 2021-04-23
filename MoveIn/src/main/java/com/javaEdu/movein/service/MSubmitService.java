@@ -28,9 +28,10 @@ public class MSubmitService implements MService {
 		String afterAddr = request.getParameter("afterAddr");
 		String afterdAddr = request.getParameter("afterdAddr");
 		String mId = request.getParameter("mId");
+		String sigungu = request.getParameter("sigunguCode");
 		
 		MoveInDAO dao = MoveInDAO.getinstance();
-		MoveInDTO dto = new MoveInDTO(0, "", beforeAddr, beforedAddr, afterAddr, afterdAddr, mId);
+		MoveInDTO dto = new MoveInDTO(0, "", beforeAddr, beforedAddr, afterAddr, afterdAddr, mId, sigungu);
 
 		int ri = dao.insertMoveIn(dto);
 
