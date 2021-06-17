@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+div#header {
+	background: #06A;
+	text-align: center;
+	position: relative;
+	overflow: auto;
+	height: 70px;
+	z-index: 2;
+}
+
+div>div>a, div#header>div {
+	display: inline-block;
+}
+
+div>div>a>.logo {
+	height: 50px;
+}
+
+div>div#logo {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+div>div#title {
+	font-size: 45px;
+	text-align: center;
+	color: white;
+}
+
+div>div#btn {
+	position: absolute;
+	right: 0px;
+}
+
+div>div>label#welcome {
+	color: white;
+}
+
+div>div>a.header {
+	text-align: center;
+	width: 100px;
+	margin: 0 auto;
+}
+
+div>div>a.header:link, div>div>a.header:visited {
+	text-decoration: none;
+	background-color: gray;
+	color: white;
+	border: 1px solid black;
+}
+
+div>div>a.header:active {
+	background-color: lightgray;
+	color: black;
+}
+
+body {
+	background: #c5cae9;
+}
+
+div>fieldset>div>form>p.title {
+	display: inline-block;
+	background: blue;
+	color: white;
+}
+
+div.bottom {
+	background: gray;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+td.right {
+	text-align: right;
+}
+
+div>div#main {
+	width: 80%;
+}
+
+.lb {
+	display: inline-block;
+	width: 100%;
+	border: 1px solid gray;
+	background: gray;
+	color: white;
+}
+
+#id, #pw, #loginbtn, #aId, #aPw, #aName, #name, #addr_lb, #dAddr_lb {
+	width: 100%;
+}
+
+fieldset {
+	width: 80%;
+	align-self: center;
+	margin: 0 auto;
+}
+
+table {
+	text-align: center;
+	margin: 0 auto;
+}
+
+table#loginF, table.info {
+	width: 50%;
+}
+
+.req:before {
+	content: "* ";
+	color: red;
+}
+
+table#signupF, table#modify, table#info {
+	width: 80%;
+}
+
+table#signupF>tbody>tr>td>.inArea, table#modify>tbody>tr>td>.inArea {
+	width: 100%;
+}
+
+table#signupF>tbody>tr>td>.inAreaHalf, table#modify>tbody>tr>td>.inAreaHalf
+	{
+	width: 45%;
+}
+
+table#signupF>tbody>tr>td>.inAreaOther, table#modify>tbody>tr>td>.inAreaOther
+	{
+	width: 30%;
+}
+
+table#signupF>tbody>tr>td>.fixedArea1, table#modify>tbody>tr>td>.fixedArea1
+	{
+	width: 150px;
+}
+
+aside.sidebar {
+	padding-top: 70px;
+	background: gray;
+	position: fixed;
+	height: 100%;
+	width: 200px;
+	top: 0px;
+	z-index: 1;
+}
+
+aside>ul {
+	list-style: none;
+	color: black;
+}
+
+.sidebarBtn {
+	list-style: circle;
+}
+
+#sidebarBtn {
+	text-decoration: none;
+	color: white;
+}
+
+fieldset#page {
+	margin-left: 200px;
+	width: 80%;
+}
+
+fieldset#page>div>div.bottomBtn, fieldset#page form, fieldset#contents>div>div.topBtn
+	{
+	text-align: center;
+}
+
+table.movein, table.list, table.detail, table#check, table.bottomBtn {
+	width: 100%;
+}
+
+table.bottomBtn>tbody>tr>td {
+	width: 33%;
+}
+
+table.movein>thead>tr>th, table.list>thead>tr>th, table.detail>tbody>tr>td#head,
+	table#info>tbody>tr>td#head, table#info>thead>tr>th {
+	background: lightgray;
+	font-weight: bold;
+}
+
+table.movein>tbody>tr>td, table.list>tbody>tr>td, table.detail>tbody>tr>td,
+	table#info>tbody>tr>td, table#info>tbody>tr>th {
+	background: white;
+	border: none;
+}
+
+table.movein>thead>tr>th, table.movein>tbody>tr>td, table.list>thead>tr>th,
+	table.list>tbody>tr>td, table.detail>tbody>tr>td, table#info>tbody>tr>td,
+	table#info>thead>tr>th {
+	border: 1px solid black;
+	color: black;
+	height: 30px;
+}
+
+table.list>thead>tr>th#select, table#info>tbody>tr>td#head {
+	width: 20%;
+}
+
+table.list>thead>tr>th#name, table.list>thead>tr>th#id {
+	width: 40%;
+}
+
+table#modify>tbody>tr>td.btn {
+	width: 20%
+}
+
+#addr, #dAddr {
+	width: 70%;
+}
+
+th#ren, th#state {
+	width: 10%;
+}
+
+th {
+	text-align: center;
+}
+
+fieldset>.title {
+	display: inline-block;
+	width: 100%;
+	font-size: 25px;
+	text-align: center;
+}
+
+fieldset>.blue {
+	background: blue;
+	color: white;
+}
+
+summary {
+	font-weight: bold;
+	width: 100%;
+	background: lightgray;
+	border-top: 1px solid blue;
+	border-bottom: 1px solid black;
+	font-size: 20px;
+}
+
+li.red {
+	color: red;
+}
+
+li.square {
+	list-style: none;
+}
+
+li.square:before {
+	content: "◾";
+	color: gray;
+	display: inline-block;
+	width: 1em;
+}
+
+input.nowBtn {
+	width: 250px;
+	background-color: #0080ff;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	white-space: pre-wrap;
+}
+
+input.btn {
+	width: 250px;
+	background-color: #ffffff;
+	border: none;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	white-space: pre-wrap;
+}
+
+select#sido, select#gugun {
+	width: 200px;
+}
+
+div#movMem {
+	display: none;
+}
+
+table#info>tbody.left>tr>td {
+	text-align: left;
+}
