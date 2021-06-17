@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hclim.movein.DAO.MemberDAO">
+	<select id="listMember" resultType="memberVO">
+		SELECT 
+			mId, mPw, mName, rrn01, rrn02, addr, dAddr, email01, email02, tel01, tel02, tel03, phone01, phone02, phone03, sigunguCode 
+		FROM
+			MEMBER_MI
+	</select>
+	
+	<select id="getMember" resultType="memberVO">
+		SELECT
+			mId, mPw, mName, rrn01, rrn02, addr, dAddr, email01, email02, tel01, tel02, tel03, phone01, phone02, phone03, sigunguCode
+		FROM
+			MEMBER_MI
+		WHERE
+			mId = #{mId}
+	</select>
+	
+	<insert id="insertMember" >
+		INSERT INTO
+			MEMBER_MI
+		VALUES 
+			(#{mId}, #{mPw}, #{mName}, #{rrn01}, #{rrn02}, #{addr}, #{dAddr}, #{email01}, #{email02}, #{tel01}, #{tel02}, #{tel03}, #{phone01}, #{phone02}, #{phone03}, #{sigunguCode})
+	</insert>
+	
+	<update id="updateMember" >
+		UPDATE 
+			MEMBER_MI
+		SET
+			mPw = #{mPw}, mName = #{mName}, rrn01=#{rrn01}, rrn02=#{rrn02}, addr=#{addr}, dAddr=#{dAddr}, email01=#{email01}, email02=#{email02},
+			 <trim>
+			 	<if test="tel01 != null">tel01=#{tel01},</if>
+			 	<if test="tel02 != null">tel02=#{tel02},</if>
+			 	<if test="tel03 != null">tel03=#{tel03},</if>
+			 </trim>
+			 phone01=#{phone01}, phone02=#{phone02}, phone03=#{phone03}, sigunguCode=#{sigunguCode}
+		WHERE
+			mId = #{mId}
+	</update>
+	
+	<delete id="deleteMember" >
+		DELETE FROM
+			MEMBER_MI
+		WHERE
+			mId = #{mId}
+	</delete>
+	
+	<select id="confirmId" resultType="String">
+		SELECT
+			mId
+		FROM
+			MEMBER_MI
+		WHERE
+			mId = #{mId}
+	</select>
+	
+	<select id="userCheck" resultType="String">
+		SELECT
+			mPw
+		FROM
+			MEMBER_MI
+		WHERE
+			mId = #{mId}
+	</select>
+	
+	<select id="findId" resultType="String">
+		SELECT
+			mId
+		FROM
+			MEMBER_MI
+		WHERE
+			mName=#{mName} AND rrn01=#{rrn01} AND rrn02=#{rrn02}
+	</select>
+	
+	<select id="findPw" resultType="String">
+		SELECT
+			mPw
+		FROM
+			MEMBER_MI
+		WHERE
+			mId=#{mId} AND mName=#{mName} AND rrn01=#{rrn01} AND rrn02=#{rrn02}
+	</select>
+</mapper>

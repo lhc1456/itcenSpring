@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hclim.movein.DAO.MoveInDAO">
+	<select id="listMoveIn" resultType="moveinVO">
+		SELECT 
+			ren, state, beforeAddr, beforedAddr, afterAddr, afterdAddr, mId, sigungu 
+		FROM
+			MOVEIN
+		ORDER BY
+			ren
+		DESC
+	</select>
+	
+	<select id="getMoveInList" resultType="moveinVO">
+		SELECT 
+			ren, state, beforeAddr, beforedAddr, afterAddr, afterdAddr, mId, sigungu 
+		FROM
+			MOVEIN
+		WHERE
+			mId = #{mId}
+		ORDER BY
+			ren
+		DESC
+	</select>
+	
+	<select id="getMoveIn" resultType="moveinVO">
+		SELECT
+			ren, state, beforeAddr, beforedAddr, afterAddr, afterdAddr, mId, sigungu
+		FROM
+			MOVEIN
+		WHERE
+			ren = #{ren}
+	</select>
+	
+	<insert id="insertMoveIn" >
+		INSERT INTO
+			MOVEIN
+		VALUES 
+			(mi_seq.nextval, '처리중', #{beforeAddr}, #{beforedAddr}, #{afterAddr}, #{afterdAddr}, #{mId}, #{sigungu})
+	</insert>
+	
+	<update id="updateMoveIn" >
+		UPDATE 
+			MOVEIN
+		SET
+			state = #{state}
+		WHERE
+			ren = #{ren}
+	</update>
+	
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hclim.movein.DAO.AdminDAO">
+	<select id="listAdmin" resultType="adminVO">
+		SELECT 
+			aId, aPw, aName 
+		FROM
+			ADMIN_MI
+	</select>
+	
+	<select id="getAdmin" resultType="adminVO">
+		SELECT
+			aId, aPw, aName
+		FROM
+			ADMIN_MI
+		WHERE
+			aId = #{aId}
+	</select>
+	
+	<insert id="insertAdmin" >
+		INSERT INTO
+			ADMIN_MI
+		VALUES 
+			(#{aId}, #{aPw}, #{aName})
+	</insert>
+	
+	<delete id="deleteAdmin" >
+		DELETE FROM
+			ADMIN_MI
+		WHERE
+			aId = #{aId}
+	</delete>
+	
+	<select id="confirmId" resultType="String">
+		SELECT
+			aId
+		FROM
+			ADMIN_MI
+		WHERE
+			aId = #{aId}
+	</select>
+	
+	<select id="userCheck" resultType="String">
+		SELECT
+			aPw
+		FROM
+			ADMIN_MI
+		WHERE
+			aId = #{aId}
+	</select>
+</mapper>
