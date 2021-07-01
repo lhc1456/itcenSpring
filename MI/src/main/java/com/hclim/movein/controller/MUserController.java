@@ -78,7 +78,7 @@ public class MUserController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(String who, String id, String pw, HttpSession session, Model model) throws IOException {
-
+		System.out.println(who);
 		if (who.equals("member")) {
 			MemberVO login = new MemberVO();
 			login.setMId(id);
